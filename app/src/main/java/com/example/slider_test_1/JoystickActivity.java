@@ -36,7 +36,7 @@ public class JoystickActivity extends AppCompatActivity implements JoystickView.
         Switch switch1= new Switch(this);
         final Button Button1 = new Button(this);
         Button1.setText("Accelerometer");
-        Button1.setId(1);
+        //Button1.setId(1);
         //configure relative layout
         RelativeLayout.LayoutParams s1= new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
         //define with and height of layout (relative)
@@ -68,8 +68,8 @@ public class JoystickActivity extends AppCompatActivity implements JoystickView.
     }
 
     public void changeToAcc(){
-        //Intent intent = new Intent(this, accelerometer.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, AccelerometerActivity.class);
+        startActivity(intent);
     }
 
 }
