@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Slider_test_1</string>
+
+    <string name="messages_prompt">Message to send</string>
+    <string-array name="messages">
+        <item>   START   </item>
+        <item>   STOP    </item>
+    </string-array>
+
+</resources>
