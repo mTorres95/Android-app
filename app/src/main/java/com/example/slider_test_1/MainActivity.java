@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         String button_text;
         button_text =((Button)View).getText().toString();
         if(button_text.equals("Bluetooth")) {
-            Intent intent = new Intent(this, JoystickActivity.class);
+            Intent intent = new Intent(this, BluetoothActivity.class);
             startActivity(intent);
         }
         if(button_text.equals("SMS")) {

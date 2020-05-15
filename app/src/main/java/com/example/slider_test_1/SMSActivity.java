@@ -32,7 +32,7 @@ public class SMSActivity extends AppCompatActivity{
     private EditText  number;
     private Spinner messageSpinner;
     private Spinner numberSpinner;
-    private Button send;
+    private Button send, save, erase;
 
     // keep the data after closing the app
     private List<String> list;  // list to add new numbers
@@ -45,14 +45,15 @@ public class SMSActivity extends AppCompatActivity{
 
         number = findViewById(R.id.inputNumber);
         send = findViewById(R.id.buttonSend);
+        save = findViewById(R.id.saveButton);
+        erase = findViewById(R.id.buttonErase);
 
         // Initialize elements to keep data after closing app
         list = new ArrayList<String>();
         // To RECOVER what's been saved in the sharedpreferences file
         savedData = getSharedPreferences("data", Context.MODE_PRIVATE);
 
-        // Get data from sharedpreferences and put it in the dropdown list
-        retrieveSharedValue();
+
 
         // send the message
         send.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +71,35 @@ public class SMSActivity extends AppCompatActivity{
             ActivityCompat.requestPermissions(this,
                     new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
         }
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onSaveButtonClick(v);
+            }
+        });
+
+        erase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onEraseButtonClick(v);
+            }
+        });
+
+
+
+        // save list in sharedPreferences
+        packageSharedPreferences();
+        // Get data from sharedpreferences and put it in the dropdown list
+        retrieveSharedValue();
+
+    }
+
+    public void onEraseButtonClick(View view){
+        savedData.edit().remove("DATE_LIST").apply();
+        list.clear();
+        // save list the now empty in sharedPreferences
+        packageSharedPreferences();
     }
 
     public void onSaveButtonClick(View view){
@@ -79,10 +109,6 @@ public class SMSActivity extends AppCompatActivity{
 
         // save list in sharedPreferences
         packageSharedPreferences();
-    }
-
-    public void onEraseButtonClick(View view){
-
     }
 
     // add items into spinner
