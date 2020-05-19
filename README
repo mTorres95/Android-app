@@ -1,0 +1,11 @@
+This project was made for the course CAI (Conception d’Applications Interactives: Design of Interactive Applications)
+by Jeronimo Perez and Mía Torres López
+
+For the control of Pan and Tilt of a camera, close distance (Bluetooth) or Far distance (SMS)
+
+-Bluetooth (Chat - Client/Server)
+-SMS
+-SharedPrefences (storing data)
+-Accelerometer
+-Joystick
+-Change between activities
